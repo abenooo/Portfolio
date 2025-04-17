@@ -222,7 +222,7 @@ export default function AboutMe() {
                 <Linkedin size={18} />
               </motion.a>
               <motion.a
-                href="https://github.com/abenezer-kifle"
+                href="https://github.com/abenooo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-purple-700"
