@@ -15,7 +15,7 @@ const workHistoryData = [
     location: "Addis Ababa, Ethiopia",
     projects: [
       {
-        name: "Infinity Mobile Banking",
+        name: "Infinity Mobile and Internet Banking",
         description: "Led development of CBE's flagship mobile banking application and web platform, providing comprehensive banking services to millions of customers.",
         tools: ["React Native", "React.js", "Hyperledger Fabric", "Node.js", "TypeScript"]
       },
