@@ -17,12 +17,12 @@ const workHistoryData = [
       {
         name: "Infinity Mobile and Internet Banking",
         description: "Led development of CBE's flagship mobile banking application and web platform, providing comprehensive banking services to millions of customers.",
-        tools: ["React Native", "React.js", "Hyperledger Fabric", "Node.js", "TypeScript"]
+        tools: ["React.js", "Fabric", "Javascript", "TypeScript", "API", "Ci/Cd", "Nextjs", "Tailwindcss", "Docker", "postgres"]
       },
       {
         name: "Secure Archive System",
         description: "Developed a secure document archiving system for foreign banks, implementing robust security measures and efficient document management.",
-        tools: ["Next.js", "TypeScript", "PostgreSQL", "AWS S3", "Authentication"]
+        tools: ["Next.js", "TypeScript", "MongoDB", "Authentication", "Strapi","Nginx"]
       },
       {
         name: "Event Addis",
@@ -31,7 +31,6 @@ const workHistoryData = [
       }
     ],
     skills: [
-      "React Native",
       "React.js",
       "Next.js",
       "Node.js",
