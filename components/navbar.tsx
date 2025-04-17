@@ -73,6 +73,24 @@ export default function Navbar() {
             >
               Contact
             </a>
+            {/* services */}
+            <a href="#services" className="text-sm font-medium text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection('services')
+              }}
+            >
+              Services
+            </a>
+            {/* testimonials */}
+            <a href="#testimonials" className="text-sm font-medium text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection('testimonials')
+              }}
+            >
+              Testimonials
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
