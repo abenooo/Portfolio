@@ -7,26 +7,72 @@ import { Menu, X } from "lucide-react"
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+    setIsMenuOpen(false)
+  }
+
   return (
     <header className="fixed top-3 left-0 right-0 z-50">
       <div className="max-w-4xl mx-auto px-4 py-3 md:mt-2 md:rounded-full md:border md:border-gray-200 md:shadow-sm bg-white/80 backdrop-blur-md">
         <div className="flex items-center justify-between relative">
           {/* Logo */}
-          <Link href="/" className="flex items-center z-10">
-            <span className="text-sm font-medium text-gray-800">Logo</span>
-          </Link>
+          <a 
+            href="#home" 
+            className="flex items-center z-10"
+            onClick={(e) => {
+              e.preventDefault()
+              scrollToSection('home')
+            }}
+          >
+            <span className="text-sm font-medium text-gray-800">Abenezer Kifle</span>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6 z-10">
-            <Link href="/about" className="text-sm font-medium text-gray-800 hover:text-gray-600 transition-colors">
+            <a
+              href="#about"
+              className="text-sm font-medium text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection('about')
+              }}
+            >
               About
-            </Link>
-            <Link href="/services" className="text-sm font-medium text-gray-800 hover:text-gray-600 transition-colors">
-              Services
-            </Link>
-            <Link href="/contact" className="text-sm font-medium text-gray-800 hover:text-gray-600 transition-colors">
+            </a>
+            <a
+              href="#experience"
+              className="text-sm font-medium text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection('experience')
+              }}
+            >
+              Experience
+            </a>
+            <a
+              href="#projects"
+              className="text-sm font-medium text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection('projects')
+              }}
+            >
+              Projects
+            </a>
+            <a
+              href="#contact"
+              className="text-sm font-medium text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection('contact')
+              }}
+            >
               Contact
-            </Link>
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -41,27 +87,46 @@ export default function Navbar() {
         <div className="md:hidden mt-2 rounded-lg border border-gray-200 shadow-sm bg-white/80 backdrop-blur-md">
           <div className="max-w-4xl mx-auto px-4 py-3">
             <nav className="flex flex-col space-y-3">
-              <Link
-                href="/about"
+              <a
+                href="#about"
                 className="text-sm font-medium text-gray-800 hover:text-gray-600 transition-colors py-1"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection('about')
+                }}
               >
                 About
-              </Link>
-              <Link
-                href="/services"
+              </a>
+              <a
+                href="#experience"
                 className="text-sm font-medium text-gray-800 hover:text-gray-600 transition-colors py-1"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection('experience')
+                }}
               >
-                Services
-              </Link>
-              <Link
-                href="/contact"
+                Experience
+              </a>
+              <a
+                href="#projects"
                 className="text-sm font-medium text-gray-800 hover:text-gray-600 transition-colors py-1"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection('projects')
+                }}
+              >
+                Projects
+              </a>
+              <a
+                href="#contact"
+                className="text-sm font-medium text-gray-800 hover:text-gray-600 transition-colors py-1"
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection('contact')
+                }}
               >
                 Contact
-              </Link>
+              </a>
             </nav>
           </div>
         </div>

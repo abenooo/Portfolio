@@ -219,217 +219,245 @@ export default function AboutMe() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12 font-sans">
-      {/* <div className="space-y-4">
-        <div className="text-gray-500 text-6xl font-light leading-tight">Designing experiences</div>
-        <h1 className="text-6xl font-bold leading-tight">that solve real problems.</h1>
-      </div> */}
+      <div id="home" className="pt-20">
+        {/* <div className="space-y-4">
+          <div className="text-gray-500 text-6xl font-light leading-tight">Designing experiences</div>
+          <h1 className="text-6xl font-bold leading-tight">that solve real problems.</h1>
+        </div> */}
+      </div>
 
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="md:col-span-1">
-          <motion.div
-            className="relative rounded-lg overflow-hidden bg-teal-700"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-          >
-            <Image
-              src="/images/abenezer.png"
-              alt="Abenezer Kifle"
-              width={400}
-              height={500}
-              className="w-full h-auto"
-            />
-            <div className="absolute bottom-0 left-0 right-0 p-4 flex gap-2">
-              <motion.a
-                href="https://twitter.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-blue-500"
-                whileHover={{
-                  scale: 1.2,
-                  y: -5,
-                  transition: { type: "spring", stiffness: 400, damping: 10 },
-                }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Twitter size={18} />
-              </motion.a>
-              <motion.a
-                href="https://linkedin.com/in/abenezer-kifle"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-blue-700"
-                whileHover={{
-                  scale: 1.2,
-                  y: -5,
-                  transition: { type: "spring", stiffness: 400, damping: 10 },
-                }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Linkedin size={18} />
-              </motion.a>
-              <motion.a
-                href="https://github.com/abenooo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-purple-700"
-                whileHover={{
-                  scale: 1.2,
-                  y: -5,
-                  transition: { type: "spring", stiffness: 400, damping: 10 },
-                }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Settings size={18} />
-              </motion.a>
-              <motion.a
-                href="https://abenezer-kifle.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-green-600"
-                whileHover={{
-                  scale: 1.2,
-                  y: -5,
-                  transition: { type: "spring", stiffness: 400, damping: 10 },
-                }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Monitor size={18} />
-              </motion.a>
-              <motion.a
-                href="mailto:abenezerkifle000@gmail.com"
-                className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-red-500"
-                whileHover={{
-                  scale: 1.2,
-                  y: -5,
-                  transition: { type: "spring", stiffness: 400, damping: 10 },
-                }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Circle size={18} />
-              </motion.a>
-            </div>
-          </motion.div>
-
-          <div className="mt-4">
-                <h2 className="text-2xl font-bold">Abenezer Kifle</h2>
-            <p className="text-gray-600">Full-stack Developer</p>
-          </div>
-
-          <div className="mt-6">
-            <h3 className="text-lg font-bold mb-2">My work history</h3>
-            <div className="space-y-2">
-              {workHistoryData.map((job) => (
-                <WorkHistoryListItem
-                  key={job.id}
-                  job={job}
-                  isSelected={selectedJob === job.id}
-                  onClick={() => setSelectedJob(job.id)}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="md:col-span-2">
-          <AnimatePresence mode="wait">
-            {isExpanded ? (
-              <motion.div
-                className="space-y-8"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{
-                  duration: 0.5,
-                  ease: [0.04, 0.62, 0.23, 0.98],
-                }}
-              >
-                <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.1 }}>
-                  <h3 className="text-2xl font-bold mb-2">I love turning ideas into something real through design.</h3>
-                  <p className="text-gray-600 text-lg">
-                    What started as a hobby turned into a career when I discovered how design can make things both look
-                    great and work better.
-                  </p>
-                </motion.div>
-
-                <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
-                  <h3 className="text-2xl font-bold mb-2">
-                    I focus on creating user interfaces that serve a real purpose
-                  </h3>
-                  <p className="text-gray-600 text-lg">
-                    - making sure they're not just pretty, but actually solve problems. Whether I'm working on a mobile
-                    app or a website, my goal is to make something that feels natural and easy to use.
-                  </p>
-                </motion.div>
-
-                <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}>
-                  <h3 className="text-2xl font-bold mb-2">
-                    I'm a bit of a perfectionist when it comes to the small stuff,
-                  </h3>
-                  <p className="text-gray-600 text-lg">
-                    but I think that's what makes good design great. This attention to detail helps me build strong
-                    relationships with clients, as they know I'll put the same care into their project that they would.
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  className="flex justify-center mt-8"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.4, type: "spring" }}
+      <div id="about" className="pt-20">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="md:col-span-1">
+            <motion.div
+              className="relative rounded-lg overflow-hidden bg-teal-700"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Image
+                src="/images/abenezer.png"
+                alt="Abenezer Kifle"
+                width={400}
+                height={500}
+                className="w-full h-auto"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-4 flex gap-2">
+                <motion.a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-blue-500"
+                  whileHover={{
+                    scale: 1.2,
+                    y: -5,
+                    transition: { type: "spring", stiffness: 400, damping: 10 },
+                  }}
+                  whileTap={{ scale: 0.9 }}
                 >
-                  <Image
-                    src="/images/abenezer.png"
-                    alt="Signature"
-                    width={200}
-                    height={100}
-                    className="w-32"
+                  <Twitter size={18} />
+                </motion.a>
+                <motion.a
+                  href="https://linkedin.com/in/abenezer-kifle"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-blue-700"
+                  whileHover={{
+                    scale: 1.2,
+                    y: -5,
+                    transition: { type: "spring", stiffness: 400, damping: 10 },
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Linkedin size={18} />
+                </motion.a>
+                <motion.a
+                  href="https://github.com/abenooo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-purple-700"
+                  whileHover={{
+                    scale: 1.2,
+                    y: -5,
+                    transition: { type: "spring", stiffness: 400, damping: 10 },
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Settings size={18} />
+                </motion.a>
+                <motion.a
+                  href="https://abenezer-kifle.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-green-600"
+                  whileHover={{
+                    scale: 1.2,
+                    y: -5,
+                    transition: { type: "spring", stiffness: 400, damping: 10 },
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Monitor size={18} />
+                </motion.a>
+                <motion.a
+                  href="mailto:abenezerkifle000@gmail.com"
+                  className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-red-500"
+                  whileHover={{
+                    scale: 1.2,
+                    y: -5,
+                    transition: { type: "spring", stiffness: 400, damping: 10 },
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <Circle size={18} />
+                </motion.a>
+              </div>
+            </motion.div>
+
+            <div className="mt-4">
+                  <h2 className="text-2xl font-bold">Abenezer Kifle</h2>
+              <p className="text-gray-600">Full-stack Developer</p>
+            </div>
+
+            <div className="mt-6">
+              <h3 className="text-lg font-bold mb-2">My work history</h3>
+              <div className="space-y-2">
+                {workHistoryData.map((job) => (
+                  <WorkHistoryListItem
+                    key={job.id}
+                    job={job}
+                    isSelected={selectedJob === job.id}
+                    onClick={() => setSelectedJob(job.id)}
                   />
-                </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
 
+          <div className="md:col-span-2">
+            <AnimatePresence mode="wait">
+              {isExpanded ? (
                 <motion.div
-                  className="flex justify-center"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
+                  className="space-y-8"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    ease: [0.04, 0.62, 0.23, 0.98],
+                  }}
                 >
-                  <div className="h-4 w-4 rounded-full bg-black"></div>
-                </motion.div>
-              </motion.div>
-            ) : (
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={selectedJob}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-white rounded-lg border p-6"
-                >
-                  <JobDetails job={workHistoryData.find((job) => job.id === selectedJob)} />
-                </motion.div>
-              </AnimatePresence>
-            )}
-          </AnimatePresence>
+                  <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.1 }}>
+                    <h3 className="text-2xl font-bold mb-2">I love turning ideas into something real through design.</h3>
+                    <p className="text-gray-600 text-lg">
+                      What started as a hobby turned into a career when I discovered how design can make things both look
+                      great and work better.
+                    </p>
+                  </motion.div>
 
-          <motion.button
-            onClick={toggleExpand}
-            className={`mt-8 flex items-center justify-center gap-2 px-6 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors mx-auto`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {isExpanded ? (
-              <>
-                <span>Hide about me</span>
-                <X size={16} />
-              </>
-            ) : (
-              <>
-                <span>Show about me</span>
-                <ChevronDown size={16} />
-              </>
-            )}
-          </motion.button>
+                  <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}>
+                    <h3 className="text-2xl font-bold mb-2">
+                      I focus on creating user interfaces that serve a real purpose
+                    </h3>
+                    <p className="text-gray-600 text-lg">
+                      - making sure they're not just pretty, but actually solve problems. Whether I'm working on a mobile
+                      app or a website, my goal is to make something that feels natural and easy to use.
+                    </p>
+                  </motion.div>
+
+                  <motion.div initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}>
+                    <h3 className="text-2xl font-bold mb-2">
+                      I'm a bit of a perfectionist when it comes to the small stuff,
+                    </h3>
+                    <p className="text-gray-600 text-lg">
+                      but I think that's what makes good design great. This attention to detail helps me build strong
+                      relationships with clients, as they know I'll put the same care into their project that they would.
+                    </p>
+                  </motion.div>
+
+                  <motion.div
+                    className="flex justify-center mt-8"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.4, type: "spring" }}
+                  >
+                    <Image
+                      src="/images/abenezer.png"
+                      alt="Signature"
+                      width={200}
+                      height={100}
+                      className="w-32"
+                    />
+                  </motion.div>
+
+                  <motion.div
+                    className="flex justify-center"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                  >
+                    <div className="h-4 w-4 rounded-full bg-black"></div>
+                  </motion.div>
+                </motion.div>
+              ) : (
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={selectedJob}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-white rounded-lg border p-6"
+                  >
+                    <JobDetails job={workHistoryData.find((job) => job.id === selectedJob)} />
+                  </motion.div>
+                </AnimatePresence>
+              )}
+            </AnimatePresence>
+
+            <motion.button
+              onClick={toggleExpand}
+              className={`mt-8 flex items-center justify-center gap-2 px-6 py-2 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors mx-auto`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              {isExpanded ? (
+                <>
+                  <span>Hide about me</span>
+                  <X size={16} />
+                </>
+              ) : (
+                <>
+                  <span>Show about me</span>
+                  <ChevronDown size={16} />
+                </>
+              )}
+            </motion.button>
+          </div>
         </div>
+      </div>
+
+      <div id="experience" className="pt-20">
+        <div className="mt-6">
+          <h3 className="text-lg font-bold mb-2">My work history</h3>
+          <div className="space-y-2">
+            {workHistoryData.map((job) => (
+              <WorkHistoryListItem
+                key={job.id}
+                job={job}
+                isSelected={selectedJob === job.id}
+                onClick={() => setSelectedJob(job.id)}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div id="projects" className="pt-20">
+        {/* Your existing projects content */}
+      </div>
+
+      <div id="contact" className="pt-20">
+        {/* Your existing contact content */}
       </div>
     </div>
   )
