@@ -1,13 +1,12 @@
 import { Button } from "@/components/ui/button"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/Footer"
+import AboutMe from "@/components/About"
 export default function Page() {
   return (
     <div>
       <Navbar />
-        <div>
-          <h1>Hello World</h1>
-        </div>
+      <AboutMe />
       <Footer />
     </div>
   )
