@@ -26,7 +26,6 @@ const workHistoryData = [
       },
       {
         name: "Event Addis",
-        url: "https://event-app-landing-page.vercel.app/",
         description: "Event discovery platform that enables customers to find and purchase tickets for events happening near them.",
         tools: ["Strapi.js", "React.js", "Next.js", "Tailwind CSS", "Payment Integration"]
       }
