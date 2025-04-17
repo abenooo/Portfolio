@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, X, Twitter, Linkedin, Settings, Monitor, Circle, ExternalLink } from "lucide-react"
+import { ChevronDown, X, Twitter, Linkedin, Settings, Monitor, Circle, ExternalLink, Github, Globe, Mail } from "lucide-react"
 import Image from "next/image"
 
 // Sample work history data
@@ -282,7 +282,7 @@ export default function AboutMe() {
                   }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <Settings size={18} />
+                  <Github size={18} />
                 </motion.a>
                 <motion.a
                   href="https://codexafrica.com/"
@@ -296,7 +296,7 @@ export default function AboutMe() {
                   }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <Monitor size={18} />
+                  <Globe size={18} />
                 </motion.a>
                 <motion.a
                   href="mailto:abenezerkifle000@gmail.com"
@@ -308,7 +308,7 @@ export default function AboutMe() {
                   }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <Circle size={18} />
+                  <Mail size={18} />
                 </motion.a>
               </div>
             </motion.div>
