@@ -249,7 +249,7 @@ export default function AboutMe() {
                 <Monitor size={18} />
               </motion.a>
               <motion.a
-                href="mailto:abenezerkifle@gmail.com"
+                href="mailto:abenezerkifle000@gmail.com"
                 className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-red-500"
                 whileHover={{
                   scale: 1.2,
