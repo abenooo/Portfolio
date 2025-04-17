@@ -218,13 +218,13 @@ export default function AboutMe() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12 font-sans">
-      <div id="home" className="pt-20">
+    <div className="max-w-5xl mx-auto px-4 font-sans">
+      {/* <div id="home" > */}
         {/* <div className="space-y-4">
           <div className="text-gray-500 text-6xl font-light leading-tight">Designing experiences</div>
           <h1 className="text-6xl font-bold leading-tight">that solve real problems.</h1>
         </div> */}
-      </div>
+      {/* </div> */}
 
       <div id="about" className="pt-20">
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
