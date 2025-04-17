@@ -243,7 +243,7 @@ export default function AboutMe() {
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 flex gap-2">
                 <motion.a
-                  href="https://twitter.com/"
+                  href="https://x.com/kifle_abenezer"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-blue-500"
@@ -285,7 +285,7 @@ export default function AboutMe() {
                   <Settings size={18} />
                 </motion.a>
                 <motion.a
-                  href="https://abenezer-kifle.vercel.app/"
+                  href="https://codexafrica.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-gray-800 text-white rounded-full p-2 cursor-pointer hover:bg-green-600"
