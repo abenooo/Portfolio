@@ -105,9 +105,57 @@ const workHistoryData = [
   {
     id: 4,
     company: "Nedamco Africa",
-    position: "AWS & Azure Student",
+    position: "Cloud Engineer Intern",
     duration: "Dec 2023 - Mar 2024 · 4 mos",
     location: "Netherlands · Remote",
+    projects: [
+      {
+        name: "Cloud Infrastructure Projects",
+        description: "Implemented real-time cloud solutions using AWS and Azure services, gaining hands-on experience in cloud architecture and deployment.",
+        tools: ["AWS", "Azure", "Docker", "Kubernetes", "Terraform"]
+      }
+    ],
+    certifications: [
+      {
+        name: "AWS Certified Cloud Practitioner",
+        issuer: "Amazon Web Services",
+        date: "2024",
+        description: "Fundamental understanding of AWS Cloud services, architecture, security, and pricing"
+      },
+      {
+        name: "Microsoft Azure Fundamentals",
+        issuer: "Microsoft",
+        date: "2024",
+        description: "Core knowledge of Azure services, cloud concepts, security, and compliance"
+      }
+    ],
+    skills: [
+      "AWS Services",
+      "Azure Cloud Platform",
+      "Cloud Architecture",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "CI/CD",
+      "Infrastructure as Code",
+      "Cloud Security",
+      "Serverless Computing"
+    ],
+    responsibilities: [
+      "Earned AWS Cloud Practitioner and Azure Fundamentals certifications",
+      "Developed and deployed cloud-native applications",
+      "Implemented infrastructure as code using Terraform",
+      "Managed containerized applications with Docker and Kubernetes",
+      "Created automated CI/CD pipelines for cloud deployments",
+      "Designed scalable and secure cloud architectures",
+      "Optimized cloud resources for cost efficiency"
+    ],
+    achievements: [
+      "Successfully completed both AWS and Azure certification programs",
+      "Implemented real-world cloud solutions using both platforms",
+      "Gained practical experience in cloud architecture and deployment",
+      "Developed expertise in cloud security and best practices"
+    ]
   },
   {
     id: 5,
@@ -574,6 +622,47 @@ function JobDetails({ job }: { job: any }) {
           <ul className="list-disc pl-5 space-y-2 text-gray-700">
             {job.responsibilities.map((responsibility: string, index: number) => (
               <li key={index}>{responsibility}</li>
+            ))}
+          </ul>
+        </motion.div>
+      )}
+
+      {job.certifications && (
+        <motion.div
+          className="space-y-2"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <h3 className="text-lg font-bold">Certifications</h3>
+          <div className="flex flex-wrap gap-2">
+            {job.certifications.map((certification: any, index: number) => (
+              <motion.span
+                key={index}
+                className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1 * index }}
+                whileHover={{ scale: 1.05, backgroundColor: "#e0e7ff" }}
+              >
+                {certification.name}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
+      )}
+
+      {job.achievements && (
+        <motion.div
+          className="space-y-2"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+        >
+          <h3 className="text-lg font-bold">Achievements</h3>
+          <ul className="list-disc pl-5 space-y-2 text-gray-700">
+            {job.achievements.map((achievement: string, index: number) => (
+              <li key={index}>{achievement}</li>
             ))}
           </ul>
         </motion.div>
