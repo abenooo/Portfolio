@@ -38,6 +38,12 @@ const services = [
     title: "Graphic Design",
     description: "Crafting bold, engaging, and versatile graphic designs that elevate your brand and captivate your audience",
     icon: <Paintbrush2 className="w-6 h-6" rotate={45} />,
+    images: [
+      "/images/abenezer.png",
+      "/images/abenezer.png",
+      "/images/abenezer.png",
+      "/images/abenezer.png"
+    ],
     height: "h-[66.67%]"
   }
 ]
@@ -107,30 +113,30 @@ export default function Services() {
             <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[1].height}`}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
-                  {services[1].icon}
+                  {services[2].icon}
                 </div>
                 <h3 className="text-2xl font-semibold text-white">
-                  {services[1].title}
+                  {services[2].title}
                 </h3>
               </div>
               <p className="text-gray-400 text-lg leading-relaxed">
-                {services[1].description}
+                {services[2].description}
               </p>
             </div>
 
             <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[0].height}`}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
-                  {services[0].icon}
+                  {services[3].icon}
                 </div>
                 <h3 className="text-2xl font-semibold text-white">
-                  {services[0].title}
+                  {services[3].title}
                 </h3>
               </div>
               <p className="text-gray-400 text-lg leading-relaxed mb-4">
-                {services[0].description}
+                {services[3].description}
               </p>
-              <ImageCarousel images={services[0].images} />
+              <ImageCarousel images={services[3].images} />
             </div>
           </div>
         </div>
