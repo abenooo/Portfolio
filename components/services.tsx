@@ -75,72 +75,72 @@ function ImageCarousel({ images }: { images?: string[] }) {
 export default function Services() {
   return (
     <section id="services" className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-[800px]">
-          {/* First column */}
-          <div className="flex flex-col gap-6">
-            <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[0].height}`}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
-                  {services[0].icon}
-                </div>
-                <h3 className="text-2xl font-semibold text-white">
-                  {services[0].title}
-                </h3>
+    <div className="max-w-7xl mx-auto px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-[800px]">
+        {/* First column */}
+        <div className="flex flex-col gap-6">
+          <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[0].height} border-t border-white/10`}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
+                {services[0].icon}
               </div>
-              <p className="text-gray-400 text-lg leading-relaxed mb-4">
-                {services[0].description}
-              </p>
-              <ImageCarousel images={services[0].images} />
+              <h3 className="text-2xl font-semibold text-white">
+                {services[0].title}
+              </h3>
             </div>
-            <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[1].height}`}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
-                  {services[1].icon}
-                </div>
-                <h3 className="text-2xl font-semibold text-white">
-                  {services[1].title}
-                </h3>
-              </div>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                {services[1].description}
-              </p>
-            </div>
+            <p className="text-gray-400 text-lg leading-relaxed mb-4">
+              {services[0].description}
+            </p>
+            <ImageCarousel images={services[0].images} />
           </div>
-          
-          {/* Second column - reversed height order */}
-          <div className="flex flex-col gap-6">
-            <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[1].height}`}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
-                  {services[2].icon}
-                </div>
-                <h3 className="text-2xl font-semibold text-white">
-                  {services[2].title}
-                </h3>
+          <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[1].height} border-t border-white/10`}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
+                {services[1].icon}
               </div>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                {services[2].description}
-              </p>
+              <h3 className="text-2xl font-semibold text-white">
+                {services[1].title}
+              </h3>
             </div>
+            <p className="text-gray-400 text-lg leading-relaxed">
+              {services[1].description}
+            </p>
+          </div>
+        </div>
+        
+        {/* Second column - reversed height order */}
+        <div className="flex flex-col gap-6">
+          <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[1].height} border-t border-white/10`}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
+                {services[2].icon}
+              </div>
+              <h3 className="text-2xl font-semibold text-white">
+                {services[2].title}
+              </h3>
+            </div>
+            <p className="text-gray-400 text-lg leading-relaxed">
+              {services[2].description}
+            </p>
+          </div>
 
-            <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[0].height}`}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
-                  {services[3].icon}
-                </div>
-                <h3 className="text-2xl font-semibold text-white">
-                  {services[3].title}
-                </h3>
+          <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[0].height} border-t border-white/10`}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
+                {services[3].icon}
               </div>
-              <p className="text-gray-400 text-lg leading-relaxed mb-4">
-                {services[3].description}
-              </p>
-              <ImageCarousel images={services[3].images} />
+              <h3 className="text-2xl font-semibold text-white">
+                {services[3].title}
+              </h3>
             </div>
+            <p className="text-gray-400 text-lg leading-relaxed mb-4">
+              {services[3].description}
+            </p>
+            <ImageCarousel images={services[3].images} />
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
   )
 }
