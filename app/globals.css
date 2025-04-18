@@ -92,3 +92,21 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-carousel {
+  animation: carousel 20s linear infinite;
+}
+
+/* Add hover pause */
+.animate-carousel:hover {
+  animation-play-state: paused;
+}

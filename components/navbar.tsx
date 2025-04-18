@@ -33,7 +33,7 @@ export default function Navbar() {
                 <span className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center">
                   ⭐
                 </span>
-                Polo
+                Abenezer Kifle
               </span>
             </a>
 
@@ -88,7 +88,7 @@ export default function Navbar() {
                 }}
               >
                 <span className="text-lg">⭐</span>
-                Get for Free
+                Contact Me
               </a>
             </nav>
 
@@ -154,7 +154,7 @@ export default function Navbar() {
                 }}
               >
                 <span className="text-lg">⭐</span>
-                Get for Free
+                Contact Me
               </a>
             </nav>
           </div>
