@@ -454,8 +454,6 @@ const WorkHistoryListItem = ({ job, isSelected, onClick, className = '' }: WorkH
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <span>View details</span>
-          <ChevronDown className="rotate-270" size={12} />
         </motion.div>
       )}
     </div>

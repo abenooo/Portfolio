@@ -9,9 +9,9 @@ const services = [
     description: "Creating stunning static and dynamic websites with modern technologies. From personal portfolios to complex e-commerce platforms, we deliver responsive, fast, and SEO-optimized websites that drive results.",
     icon: <LayoutGrid className="w-6 h-6" />,
     images: [
-      "/images/abenezer.png",
-      "/images/abenezer.png",
-      "/images/abenezer.png",
+      "/images/hhs.png",
+      "/images/sml.png",
+      "/images/codex.png",
       "/images/abenezer.png"
     ],
     height: "h-[66.67%]"
@@ -27,10 +27,10 @@ const services = [
     description: "Streamlining your workflow with custom automation solutions. We help reduce manual tasks, increase efficiency, and save time by automating repetitive processes using cutting-edge technologies.",
     icon: <Settings className="w-6 h-6" />,
     images: [
-      "/images/automation.png",
-      "/images/automation.png",
-      "/images/automation.png",
-      "/images/automation.png"
+      "/images/sml.png",
+      "/images/sml.png",
+      "/images/sml.png",
+      "/images/sml.png"
     ],
     height: "h-[33.33%]"
   },
