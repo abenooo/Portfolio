@@ -94,7 +94,7 @@ export default function Navbar() {
                     }}
                   >
                     <span className="text-lg">⭐</span>
-                    Contact Me
+                    Hire Me
                   </a>
                 </div>
               </nav>
@@ -164,7 +164,7 @@ export default function Navbar() {
                   }}
                 >
                   <span className="text-lg">⭐</span>
-                  Contact Me
+                  Hire Me
                 </a>
               </div>
             </nav>

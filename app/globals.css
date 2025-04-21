@@ -110,3 +110,42 @@ body {
 .animate-carousel:hover {
   animation-play-state: paused;
 }
+
+@keyframes carousel-fast {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+.animate-carousel-fast {
+  animation: carousel-fast 12s linear infinite;
+}
+
+.animate-carousel-fast:hover {
+  animation-play-state: paused;
+}
+
+/* Add a subtle fade effect on the edges */
+.overflow-hidden::before,
+.overflow-hidden::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.overflow-hidden::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+.overflow-hidden::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+}
