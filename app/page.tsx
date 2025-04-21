@@ -8,8 +8,8 @@ export default function Page() {
   return (
     <div>
       <Navbar />
+      <Services/>
       <AboutMe />
-      <Services />
       <Footer />
     </div>
   )
