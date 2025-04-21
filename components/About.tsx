@@ -85,7 +85,7 @@ const workHistoryData: Job[] = [
     {
       id: 2,
       company: "CodeX Africa",
-      position: "Founder",
+      position: "Founder and Full Stack Developer",
       duration: "Feb 2024 - Present · 1 yr 3 mos",
       location: "Addis Ababa, Ethiopia · Hybrid",
       projects: [
@@ -130,7 +130,7 @@ const workHistoryData: Job[] = [
     {
       id: 3,
       company: "Nedamco Africa",
-      position: "Cloud Engineer Intern",
+      position: "Cloud Engineer Intern and student (Remote)",
       duration: "Dec 2023 - Mar 2024 · 4 mos",
       location: "Netherlands · Remote",
       projects: [
@@ -179,7 +179,7 @@ const workHistoryData: Job[] = [
     {
       id: 4,
       company: "oLab - A People First Company",
-      position: "Frontend Developer",
+      position: "Frontend Developer (Remote)",
       duration: "Jan 2023 - Dec 2023 · 1 yr",
       location: "Australia · Remote",
       projects: [
