@@ -75,7 +75,7 @@ function ImageCarousel({ images }: { images?: string[] }) {
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 lg:py-40 bg-black">
+    <section id="services" className="py-20 lg:py-32 bg-black">
       <div className="max-w-7xl mx-auto px-4">
         {/* Added section header */}
         <div className="text-center mb-12">
