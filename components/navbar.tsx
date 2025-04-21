@@ -54,14 +54,14 @@ export default function Navbar() {
                   Services
                 </a>
                 <a
-                  href="#projects"
+                  href="#experience"
                   className="text-base font-medium text-white/90 hover:text-white transition-colors cursor-pointer"
                   onClick={(e) => {
                     e.preventDefault()
-                    scrollToSection('projects')
+                    scrollToSection('experience')
                   }}
                 >
-                  Projects
+                  Experience
                 </a>
                 <a
                   href="#testimonials"
