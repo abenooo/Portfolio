@@ -129,55 +129,6 @@ const workHistoryData: Job[] = [
     },
     {
       id: 3,
-      company: "Nedamco Africa",
-      position: "Cloud Engineer Intern and student (Remote)",
-      duration: "Dec 2023 - Mar 2024 · 4 mos",
-      location: "Netherlands · Remote",
-      projects: [
-        {
-          name: "Cloud Infrastructure Projects",
-          description: "Implemented real-time cloud solutions using AWS and Azure services, gaining hands-on experience in cloud architecture and deployment.",
-          tools: ["AWS", "Azure", "Docker", "Kubernetes", "Terraform"]
-        }
-      ],
-      certifications: [
-        {
-          name: "AWS Certified Cloud Practitioner",
-          issuer: "Amazon Web Services",
-          date: "2024",
-          description: "Fundamental understanding of AWS Cloud services, architecture, security, and pricing"
-        },
-        {
-          name: "Microsoft Azure Fundamentals",
-          issuer: "Microsoft",
-          date: "2024",
-          description: "Core knowledge of Azure services, cloud concepts, security, and compliance"
-        }
-      ],
-      skills: [
-        "AWS Services",
-        "Azure Cloud Platform",
-        "Cloud Architecture",
-        "Docker",
-        "Kubernetes",
-        "Terraform",
-        "CI/CD",
-        "Infrastructure as Code",
-        "Cloud Security",
-        "Serverless Computing"
-      ],
-      responsibilities: [
-        "Earned AWS Cloud Practitioner and Azure Fundamentals certifications",
-        "Developed and deployed cloud-native applications",
-        "Implemented infrastructure as code using Terraform",
-        "Managed containerized applications with Docker and Kubernetes",
-        "Created automated CI/CD pipelines for cloud deployments",
-        "Designed scalable and secure cloud architectures",
-        "Optimized cloud resources for cost efficiency"
-      ]
-    },
-    {
-      id: 4,
       company: "oLab - A People First Company",
       position: "Frontend Developer (Remote)",
       duration: "Jan 2023 - Dec 2023 · 1 yr",
@@ -226,7 +177,57 @@ const workHistoryData: Job[] = [
         "Implemented Google Sheets automation for data management",
         "Optimized business processes through automation solutions"
       ]
-    }
+    },
+    {
+      id: 4,
+      company: "Nedamco Africa",
+      position: "Cloud Engineer Intern and student (Remote)",
+      duration: "Dec 2023 - Mar 2024 · 4 mos",
+      location: "Netherlands · Remote",
+      projects: [
+        {
+          name: "Cloud Infrastructure Projects",
+          description: "Implemented real-time cloud solutions using AWS and Azure services, gaining hands-on experience in cloud architecture and deployment.",
+          tools: ["AWS", "Azure", "Docker", "Kubernetes", "Terraform"]
+        }
+      ],
+      certifications: [
+        {
+          name: "AWS Certified Cloud Practitioner",
+          issuer: "Amazon Web Services",
+          date: "2024",
+          description: "Fundamental understanding of AWS Cloud services, architecture, security, and pricing"
+        },
+        {
+          name: "Microsoft Azure Fundamentals",
+          issuer: "Microsoft",
+          date: "2024",
+          description: "Core knowledge of Azure services, cloud concepts, security, and compliance"
+        }
+      ],
+      skills: [
+        "AWS Services",
+        "Azure Cloud Platform",
+        "Cloud Architecture",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "CI/CD",
+        "Infrastructure as Code",
+        "Cloud Security",
+        "Serverless Computing"
+      ],
+      responsibilities: [
+        "Earned AWS Cloud Practitioner and Azure Fundamentals certifications",
+        "Developed and deployed cloud-native applications",
+        "Implemented infrastructure as code using Terraform",
+        "Managed containerized applications with Docker and Kubernetes",
+        "Created automated CI/CD pipelines for cloud deployments",
+        "Designed scalable and secure cloud architectures",
+        "Optimized cloud resources for cost efficiency"
+      ]
+    },
+   
   ]
 
 export default function AboutMe() {
