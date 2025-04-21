@@ -80,11 +80,11 @@ export default function Navbar() {
                 Contact
               </a>
               <a
-                href="#get-free"
+                href="#contact"
                 className="text-base font-medium px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors cursor-pointer flex items-center gap-2"
                 onClick={(e) => {
                   e.preventDefault()
-                  scrollToSection('get-free')
+                  scrollToSection('contact')
                 }}
               >
                 <span className="text-lg">⭐</span>
