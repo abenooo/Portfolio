@@ -1,48 +1,48 @@
 "use client"
 
-import { LayoutGrid, Paintbrush2, Framer } from 'lucide-react'
+import { LayoutGrid, Paintbrush2, Framer, Smartphone, Settings, Palette } from 'lucide-react'
 import Image from 'next/image'
 
 const services = [
   {
-    title: "Website Design",
-    description: "Designing breathtaking, user-centric websites that boost engagement, conversions, and growth, perfectly aligned with your brand",
+    title: "Website Development",
+    description: "Creating stunning static and dynamic websites with modern technologies. From personal portfolios to complex e-commerce platforms, we deliver responsive, fast, and SEO-optimized websites that drive results.",
     icon: <LayoutGrid className="w-6 h-6" />,
     images: [
-      "/images/static.png",
-      "/images/static.png",
-      "/images/static.png",
-      "/images/static.png"
+      "/images/abenezer.png",
+      "/images/abenezer.png",
+      "/images/abenezer.png",
+      "/images/abenezer.png"
     ],
     height: "h-[66.67%]"
   },
   {
-    title: "Logo Design",
-    description: "Crafting distinctive, scalable, and impactful logos that embody your brand's identity and vision",
-    icon: <Paintbrush2 className="w-6 h-6" />,
+    title: "Mobile App Development",
+    description: "Building powerful, user-friendly mobile applications for iOS and Android. We create seamless, feature-rich apps that provide exceptional user experiences and meet your business objectives.",
+    icon: <Smartphone className="w-6 h-6" />,
     height: "h-[33.33%]"
   },
   {
-    title: "Framer Design",
-    description: "Bringing ideas to life with interactive, user-centered Framer designs that simplify complexity and elevate user experience",
-    icon: <Framer className="w-6 h-6" />,
+    title: "Automation Solutions",
+    description: "Streamlining your workflow with custom automation solutions. We help reduce manual tasks, increase efficiency, and save time by automating repetitive processes using cutting-edge technologies.",
+    icon: <Settings className="w-6 h-6" />,
     images: [
-      "/images/abenezer.png",
-      "/images/abenezer.png",
-      "/images/abenezer.png",
-      "/images/abenezer.png"
+      "/images/automation.png",
+      "/images/automation.png",
+      "/images/automation.png",
+      "/images/automation.png"
     ],
     height: "h-[33.33%]"
   },
   {
-    title: "Graphic Design",
-    description: "Crafting bold, engaging, and versatile graphic designs that elevate your brand and captivate your audience",
-    icon: <Paintbrush2 className="w-6 h-6" rotate={45} />,
+    title: "Social Media & Design",
+    description: "Boosting your brand's online presence with strategic social media management and eye-catching graphic design. We create engaging content and stunning visuals that help you stand out in the digital landscape.",
+    icon: <Palette className="w-6 h-6" />,
     images: [
-      "/images/abenezer.png",
-      "/images/abenezer.png",
-      "/images/abenezer.png",
-      "/images/abenezer.png"
+      "/images/social.png",
+      "/images/social.png",
+      "/images/social.png",
+      "/images/social.png"
     ],
     height: "h-[66.67%]"
   }
@@ -127,7 +127,7 @@ export default function Services() {
         <div className="relative group">
           <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
           <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
-          <div className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[1].height} border-t border-white/10`}>
+          <div className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[2].height} border-t border-white/10`}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
                 {services[2].icon}
@@ -146,7 +146,7 @@ export default function Services() {
         <div className="relative group">
           <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
           <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
-          <div className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[0].height} border-t border-white/10`}>
+          <div className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[3].height} border-t border-white/10`}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
                 {services[3].icon}
