@@ -75,11 +75,17 @@ function ImageCarousel({ images }: { images?: string[] }) {
 export default function Services() {
   return (
     <section id="services" className="py-20 bg-black">
-    <div className="max-w-7xl mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-[800px]">
-        {/* First column */}
-        <div className="flex flex-col gap-6">
-          <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[0].height} border-t border-white/10`}>
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-[800px]">
+      {/* First column */}
+      <div className="flex flex-col gap-6">
+        {/* First service card with border glow */}
+        <div className="relative group">
+          {/* Updated glow effect - now with a smaller spread and higher opacity */}
+          <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
+          {/* Added an inner background to prevent text blur */}
+          <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
+          <div className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[0].height} border-t border-white/10`}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
                 {services[0].icon}
@@ -93,7 +99,13 @@ export default function Services() {
             </p>
             <ImageCarousel images={services[0].images} />
           </div>
-          <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[1].height} border-t border-white/10`}>
+        </div>
+
+        {/* Second service card with border glow */}
+        <div className="relative group">
+          <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
+          <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
+          <div className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[1].height} border-t border-white/10`}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
                 {services[1].icon}
@@ -107,10 +119,15 @@ export default function Services() {
             </p>
           </div>
         </div>
-        
-        {/* Second column - reversed height order */}
-        <div className="flex flex-col gap-6">
-          <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[1].height} border-t border-white/10`}>
+      </div>
+      
+      {/* Second column - reversed height order */}
+      <div className="flex flex-col gap-6">
+        {/* Third service card with border glow */}
+        <div className="relative group">
+          <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
+          <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
+          <div className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[1].height} border-t border-white/10`}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
                 {services[2].icon}
@@ -123,8 +140,13 @@ export default function Services() {
               {services[2].description}
             </p>
           </div>
+        </div>
 
-          <div className={`p-8 rounded-[32px] bg-[#111] hover:bg-[#161616] transition-colors duration-300 ${services[0].height} border-t border-white/10`}>
+        {/* Fourth service card with border glow */}
+        <div className="relative group">
+          <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
+          <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
+          <div className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[0].height} border-t border-white/10`}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
                 {services[3].icon}
@@ -141,6 +163,7 @@ export default function Services() {
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
   )
 }
