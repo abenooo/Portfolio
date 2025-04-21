@@ -333,14 +333,21 @@ export default function AboutMe() {
 
             <div className="mt-6">
               <h3 className="text-lg font-bold text-white mb-2">My work history</h3>
-              <div className="space-y-2">
+              <div className="space-y-4">
                 {workHistoryData.map((job) => (
-                  <WorkHistoryListItem
-                    key={job.id}
-                    job={job}
-                    isSelected={selectedJob === job.id}
-                    onClick={() => setSelectedJob(job.id)}
-                  />
+                  <div key={job.id} className="relative inline-flex group w-full">
+                    <div
+                      className={`absolute transition-all duration-1000 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg 
+                        ${selectedJob === job.id ? 'opacity-100 -inset-1' : 'opacity-0'} 
+                        group-hover:opacity-70 group-hover:-inset-1 group-hover:duration-200`}
+                    />
+                    <WorkHistoryListItem
+                      job={job}
+                      isSelected={selectedJob === job.id}
+                      onClick={() => setSelectedJob(job.id)}
+                      className="relative w-full bg-gray-900 rounded-xl transition-all duration-200"
+                    />
+                  </div>
                 ))}
               </div>
             </div>
@@ -425,27 +432,18 @@ export default function AboutMe() {
   )
 }
 
-function WorkHistoryListItem({ 
-  job, 
-  isSelected, 
-  onClick 
-}: { 
-  job: Job; 
-  isSelected: boolean; 
-  onClick: () => void; 
-}) {
+interface WorkHistoryListItemProps {
+  job: Job;
+  isSelected: boolean;
+  onClick: () => void;
+  className?: string;
+}
+
+const WorkHistoryListItem = ({ job, isSelected, onClick, className = '' }: WorkHistoryListItemProps) => {
   return (
-    <motion.div
-      className={`rounded-[32px] p-4 cursor-pointer transition-all ${
-        isSelected 
-          ? "bg-[#161616] border-t border-white/10" 
-          : "bg-[#111] border-t border-white/10 hover:bg-[#161616]"
-      }`}
+    <div
       onClick={onClick}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      className={`cursor-pointer p-4 ${className}`}
     >
       <h4 className="font-bold text-base text-white">{job.company}</h4>
       <p className="text-gray-400 text-sm">{job.position}</p>
@@ -460,9 +458,9 @@ function WorkHistoryListItem({
           <ChevronDown className="rotate-270" size={12} />
         </motion.div>
       )}
-    </motion.div>
-  )
-}
+    </div>
+  );
+};
 
 function JobDetails({ job }: { job?: Job }) {
   if (!job) return null;
