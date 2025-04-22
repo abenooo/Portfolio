@@ -243,12 +243,6 @@ export default function Services() {
                 <ServiceCard key={`row1-${index}`} service={service} />
               ))}
             </div>
-            {/* Second row moving in opposite direction */}
-            {/* <div className="flex mt-8 animate-carousel-reverse">
-              {[...additionalServices.reverse(), ...additionalServices].map((service, index) => (
-                <ServiceCard key={`row2-${index}`} service={service} />
-              ))}
-            </div> */}
           </div>
         </div>
       </div>
