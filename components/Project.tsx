@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, useTransform, easeOut } from "framer-motion"
 import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 
@@ -12,30 +12,68 @@ const ProjectTag = ({ children }: { children: React.ReactNode }) => (
 
 // Reusable component for project cards
 const ProjectCard = ({ project, style }: { project: any, style: any }) => (
-  <motion.div style={style} className="absolute inset-0 flex items-center justify-center">
+  <motion.div 
+    style={{
+      ...style,
+      zIndex: style.zIndex || 'auto'
+    }} 
+    className="absolute inset-0 flex items-center justify-center h-screen will-change-transform"
+  >
     <div className="max-w-7xl w-full h-full md:h-auto md:aspect-[16/9] relative rounded-3xl overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover opacity-90" />
-        <div className="absolute inset-0 bg-black/30" />
-      </div>
+      <motion.div 
+        className="absolute inset-0 z-0"
+        style={{
+          filter: `blur(${style.blur}px)`,
+          transition: 'filter 0.5s ease-out'
+        }}
+      >
+        <Image 
+          src={project.image || "/placeholder.svg"} 
+          alt={project.title} 
+          fill 
+          className="object-cover transition-transform duration-1000"
+          priority
+          sizes="(max-width: 768px) 100vw, 80vw"
+        />
+        <motion.div 
+          className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60"
+          style={{
+            opacity: style.gradientOpacity
+          }}
+        />
+      </motion.div>
 
-      <div className="absolute top-6 left-6 z-10 flex gap-2">
+      <motion.div 
+        className="absolute top-6 left-6 z-10 flex gap-2"
+        style={{ opacity: style.contentOpacity }}
+      >
         {project.tags.map((tag: any) => (
           <ProjectTag key={tag}>{tag}</ProjectTag>
         ))}
-      </div>
+      </motion.div>
 
-      <div className="absolute top-6 right-6 z-10">
+      <motion.div 
+        className="absolute top-6 right-6 z-10"
+        style={{ opacity: style.contentOpacity }}
+      >
         <ProjectTag>{project.year}</ProjectTag>
-      </div>
+      </motion.div>
 
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-8 z-10">
+      <motion.div 
+        className="absolute inset-0 flex flex-col justify-center items-center text-center p-8 z-10"
+        style={{ opacity: style.contentOpacity }}
+      >
         <h2 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">{project.title}</h2>
         <p className="text-lg md:text-xl mb-8 text-white drop-shadow-md max-w-2xl">{project.description}</p>
-        <button className="w-20 h-20 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-lg font-medium hover:scale-110 transition-transform">
+        <motion.button 
+          className="w-20 h-20 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-lg font-medium"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 400, damping: 25 }}
+        >
           View
-        </button>
-      </div>
+        </motion.button>
+      </motion.div>
     </div>
   </motion.div>
 )
@@ -81,35 +119,33 @@ export default function Project() {
   ]
 
   return (
-    <div className="h-[500vh]" ref={containerRef}>
-      <div className="fixed inset-0 overflow-hidden">
-        {/* Render projects in reverse order so first project is at the bottom of the stack */}
-        {[...projects].reverse().map((project, reversedIndex) => {
-          // Convert back to original index for calculations
-          const index = projects.length - 1 - reversedIndex
+    <section id="projects" className="relative bg-black">
+      <div className="h-[400vh]" ref={containerRef}>
+        <div className="sticky top-0 h-screen overflow-hidden">
+          {[...projects].reverse().map((project, reversedIndex) => {
+            const index = projects.length - 1 - reversedIndex
+            return (
+              <ProjectSection
+                key={project.id}
+                project={project}
+                index={index}
+                totalProjects={projects.length}
+                containerRef={containerRef}
+              />
+            )
+          })}
+        </div>
 
-          return (
-            <ProjectSection
-              key={project.id}
-              project={project}
-              index={index}
-              totalProjects={projects.length}
-              containerRef={containerRef}
-            />
-          )
-        })}
+        <motion.div
+          className="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
+          initial={{ y: -10, opacity: 0.5 }}
+          animate={{ y: 10, opacity: 1 }}
+          transition={{ repeat: Number.POSITIVE_INFINITY, repeatType: "reverse", duration: 1.5 }}
+        >
+          <ChevronDown size={32} className="text-white drop-shadow-md" />
+        </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
-        initial={{ y: -10, opacity: 0.5 }}
-        animate={{ y: 10, opacity: 1 }}
-        transition={{ repeat: Number.POSITIVE_INFINITY, repeatType: "reverse", duration: 1.5 }}
-      >
-        <ChevronDown size={32} className="text-white drop-shadow-md" />
-      </motion.div>
-    </div>
+    </section>
   )
 }
 
@@ -119,45 +155,53 @@ function ProjectSection({ project, index, totalProjects, containerRef }: { proje
     offset: ["start", "end"],
   })
 
-  // Calculate when this project should be visible
   const sectionHeight = 1 / totalProjects
   const sectionStart = index * sectionHeight
   const sectionEnd = sectionStart + sectionHeight
 
-  // Modified animation values for sequential stacking
   const y = useTransform(
     scrollYProgress,
-    [
-      sectionStart, // Start of section
-      Math.min(sectionStart + 0.1, sectionEnd), // Initial hold
-      Math.min(sectionStart + 0.4, sectionEnd), // Start moving
-      sectionEnd // End of section
-    ],
-    [
-      '100vh', // Start off-screen below
-      '0vh',   // Move to center
-      '0vh',   // Hold in center
-      '-100vh' // Move off-screen above
-    ]
+    [sectionStart, sectionEnd],
+    ['0vh', '-100vh']
   )
 
-  const opacity = useTransform(
-    scrollYProgress,
-    [
-      sectionStart,
-      Math.min(sectionStart + 0.1, sectionEnd),
-      Math.min(sectionStart + 0.4, sectionEnd),
-      sectionEnd
-    ],
-    [0, 1, 1, 0]
-  )
-
-  // Remove rotation for cleaner transitions
   const scale = useTransform(
     scrollYProgress,
-    [sectionStart, Math.min(sectionStart + 0.4, sectionEnd), sectionEnd],
-    [0.8, 1, 0.8]
+    [sectionStart, sectionEnd],
+    [1, 0.85]
   )
 
-  return <ProjectCard project={project} style={{ y, scale, opacity }} />
+  const blur = useTransform(
+    scrollYProgress,
+    [sectionStart, sectionStart + (sectionHeight * 0.2)],
+    [0, 8]
+  )
+
+  const contentOpacity = useTransform(
+    scrollYProgress,
+    [sectionStart, sectionStart + (sectionHeight * 0.3)],
+    [1, 0]
+  )
+
+  const gradientOpacity = useTransform(
+    scrollYProgress,
+    [sectionStart, sectionStart + (sectionHeight * 0.3)],
+    [0.6, 0.8]
+  )
+
+  const zIndex = totalProjects - index
+
+  return (
+    <ProjectCard 
+      project={project} 
+      style={{ 
+        y, 
+        scale, 
+        blur,
+        contentOpacity,
+        gradientOpacity,
+        zIndex 
+      }} 
+    />
+  )
 }
