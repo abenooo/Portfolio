@@ -124,16 +124,40 @@ function ProjectSection({ project, index, totalProjects, containerRef }: { proje
   const sectionStart = index * sectionHeight
   const sectionEnd = sectionStart + sectionHeight
 
-  // Animation values
+  // Modified animation values for sequential stacking
   const y = useTransform(
     scrollYProgress,
-    [sectionStart, sectionStart + 0.1, sectionStart + 0.25, sectionEnd],
-    [0, 0, "-100vh", "-100vh"],
+    [
+      sectionStart, // Start of section
+      Math.min(sectionStart + 0.1, sectionEnd), // Initial hold
+      Math.min(sectionStart + 0.4, sectionEnd), // Start moving
+      sectionEnd // End of section
+    ],
+    [
+      '100vh', // Start off-screen below
+      '0vh',   // Move to center
+      '0vh',   // Hold in center
+      '-100vh' // Move off-screen above
+    ]
   )
 
-  const scale = useTransform(scrollYProgress, [sectionStart, sectionStart + 0.25], [1, 0.95])
+  const opacity = useTransform(
+    scrollYProgress,
+    [
+      sectionStart,
+      Math.min(sectionStart + 0.1, sectionEnd),
+      Math.min(sectionStart + 0.4, sectionEnd),
+      sectionEnd
+    ],
+    [0, 1, 1, 0]
+  )
 
-  const rotate = useTransform(scrollYProgress, [sectionStart, sectionStart + 0.25], [0, -2])
+  // Remove rotation for cleaner transitions
+  const scale = useTransform(
+    scrollYProgress,
+    [sectionStart, Math.min(sectionStart + 0.4, sectionEnd), sectionEnd],
+    [0.8, 1, 0.8]
+  )
 
-  return <ProjectCard project={project} style={{ y, scale, rotate }} />
+  return <ProjectCard project={project} style={{ y, scale, opacity }} />
 }
