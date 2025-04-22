@@ -61,11 +61,6 @@ const additionalServices = [
     icon: <Package className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
   },
   {
-    title: "Slide Decks",
-    description: "Professional presentation design",
-    icon: <Presentation className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
-  },
-  {
     title: "Brand Graphics",
     description: "Cohesive visual asset development",
     icon: <PenTool className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
@@ -234,6 +229,7 @@ export default function Services() {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] mx-auto rounded-full mb-4"></div>
           </div>
+          
 
           <div className="relative overflow-hidden">
             {/* First row */}
@@ -242,12 +238,17 @@ export default function Services() {
                 <ServiceCard key={`row1-${index}`} service={service} />
               ))}
             </div>
+            <div className="flex animate-carousel mt-8">
+              {[...additionalServices, ...additionalServices].map((service, index) => (
+                <ServiceCard key={`row1-${index}`} service={service} />
+              ))}
+            </div>
             {/* Second row moving in opposite direction */}
-            <div className="flex mt-8 animate-carousel-reverse">
+            {/* <div className="flex mt-8 animate-carousel-reverse">
               {[...additionalServices.reverse(), ...additionalServices].map((service, index) => (
                 <ServiceCard key={`row2-${index}`} service={service} />
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
