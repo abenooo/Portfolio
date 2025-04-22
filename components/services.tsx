@@ -1,6 +1,6 @@
 "use client"
 
-import { LayoutGrid, Paintbrush2, Framer, Smartphone, Settings, Palette } from 'lucide-react'
+import { LayoutGrid, Paintbrush2, Framer, Smartphone, Settings, Palette, ArrowLeftRight, Package, PenTool, Presentation } from 'lucide-react'
 import Image from 'next/image'
 
 const services = [
@@ -48,6 +48,31 @@ const services = [
   }
 ]
 
+// Add new services for the carousel
+const additionalServices = [
+  {
+    title: "Brand Migration",
+    description: "Seamless brand identity transitions across platforms",
+    icon: <ArrowLeftRight className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
+  },
+  {
+    title: "Package Design",
+    description: "Eye-catching product packaging solutions",
+    icon: <Package className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
+  },
+  {
+    title: "Slide Decks",
+    description: "Professional presentation design",
+    icon: <Presentation className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
+  },
+  {
+    title: "Brand Graphics",
+    description: "Cohesive visual asset development",
+    icon: <PenTool className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
+  },
+  // Add more services as needed
+]
+
 function ImageCarousel({ images }: { images?: string[] }) {
   if (!images) return null;
   
@@ -71,6 +96,31 @@ function ImageCarousel({ images }: { images?: string[] }) {
       </div>
     </div>
   );
+}
+
+// Add new ServiceCard component for the carousel
+function ServiceCard({ service }: { service: any }) {
+  return (
+    <div className="flex-shrink-0 w-[300px] mx-4">
+      <div className="relative group">
+        <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[20px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
+        <div className="absolute inset-[1px] bg-[#111] rounded-[20px]" />
+        <div className="relative p-6 rounded-[20px] bg-transparent hover:bg-[#161616] transition-colors duration-300 border-t border-white/10">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
+              {service.icon}
+            </div>
+            <h3 className="text-xl font-semibold text-white">
+              {service.title}
+            </h3>
+          </div>
+          <p className="text-gray-400 text-base leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default function Services() {
@@ -172,6 +222,31 @@ export default function Services() {
                 </p>
                 <ImageCarousel images={services[3].images} />
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Add new infinite carousel section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Additional Services
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] mx-auto rounded-full mb-4"></div>
+          </div>
+
+          <div className="relative overflow-hidden">
+            {/* First row */}
+            <div className="flex animate-carousel">
+              {[...additionalServices, ...additionalServices].map((service, index) => (
+                <ServiceCard key={`row1-${index}`} service={service} />
+              ))}
+            </div>
+            {/* Second row moving in opposite direction */}
+            <div className="flex mt-8 animate-carousel-reverse">
+              {[...additionalServices.reverse(), ...additionalServices].map((service, index) => (
+                <ServiceCard key={`row2-${index}`} service={service} />
+              ))}
             </div>
           </div>
         </div>
