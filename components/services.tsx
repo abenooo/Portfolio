@@ -1,12 +1,12 @@
 "use client"
 
-import { LayoutGrid, Paintbrush2, Framer, Smartphone, Settings, Palette, ArrowLeftRight, Package, PenTool, Presentation } from 'lucide-react'
+import { LayoutGrid, Paintbrush2, Framer, Smartphone, Settings, Palette, ArrowLeftRight, Package, PenTool, Presentation, Code2, CreditCard, Bot, Cloud } from 'lucide-react'
 import Image from 'next/image'
 
 const services = [
   {
-    title: "Website Development",
-    description: "Creating stunning static and dynamic websites with modern technologies. From personal portfolios to complex e-commerce platforms, we deliver responsive, fast, and SEO-optimized websites that drive results.",
+    title: "Business Website",
+    description: "Custom WordPress plugin development for unique business needs. Specializing in PHP, WordPress, Plugin Development, Custom Code, JavaScript, and CSS.",
     icon: <LayoutGrid className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
     images: [
       "/images/hhs.png",
@@ -17,32 +17,26 @@ const services = [
     height: "h-[66.67%]"
   },
   {
-    title: "Mobile App Development",
-    description: "Building powerful, user-friendly mobile applications for iOS and Android. We create seamless, feature-rich apps that provide exceptional user experiences and meet your business objectives.",
-    icon: <Smartphone className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
+    title: "Personal Website",
+    description: "Tailored software solutions using modern tech stack: React, Next.js, Node.js, Express, MongoDB, and API Integration.",
+    icon: <Code2 className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
     height: "h-[33.33%]"
   },
   {
-    title: "Automation Solutions",
-    description: "Streamlining your workflow with custom automation solutions. We help reduce manual tasks, increase efficiency, and save time by automating repetitive processes using cutting-edge technologies.",
+    title: "E-Commerce",
+    description: "Comprehensive support for e-commerce platforms including Shopify, WooCommerce, Magento with Payment Gateway and API Integration.",
+    icon: <Code2 className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
+    height: "h-[33.33%]"
+  },
+  {
+    title: "Automation",
+    description: "Powerful automation solutions using Zapier, Make.com, and Google Sheets to streamline your business processes and boost efficiency.",
     icon: <Settings className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
     images: [
+      "/images/hhs.png",
       "/images/sml.png",
-      "/images/sml.png",
-      "/images/sml.png",
-      "/images/sml.png"
-    ],
-    height: "h-[33.33%]"
-  },
-  {
-    title: "Social Media & Design",
-    description: "Boosting your brand's online presence with strategic social media management and eye-catching graphic design. We create engaging content and stunning visuals that help you stand out in the digital landscape.",
-    icon: <Palette className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
-    images: [
-      "/images/sml.png",
-      "/images/sml.png",
-      "/images/sml.png",
-      "/images/sml.png"
+      "/images/codex.png",
+      "/images/abenezer.png"
     ],
     height: "h-[66.67%]"
   }
@@ -51,21 +45,25 @@ const services = [
 // Add new services for the carousel
 const additionalServices = [
   {
-    title: "Brand Migration",
-    description: "Seamless brand identity transitions across platforms",
-    icon: <ArrowLeftRight className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
+    title: "Payment Integration",
+    description: "Seamless payment integration with Telebirr, Chapa, PayPal, and Stripe payment gateways.",
+    icon: <CreditCard className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
   },
   {
-    title: "Package Design",
-    description: "Eye-catching product packaging solutions",
-    icon: <Package className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
+    title: "Bot Development",
+    description: "Custom bots for Telegram and other platforms using JavaScript, Node.js, and API Integration.",
+    icon: <Bot className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
   },
   {
-    title: "Brand Graphics",
-    description: "Cohesive visual asset development",
-    icon: <PenTool className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
+    title: "UI/UX Design",
+    description: "End-to-end UI design and UX research using Figma, Sketch, Adobe XD",
+    icon: <Palette className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
   },
-  // Add more services as needed
+  {
+    title: "Cloud Solutions",
+    description: "Integration of cloud storage and support for seamless business operations.",
+    icon: <Cloud className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
+  }
 ]
 
 function ImageCarousel({ images }: { images?: string[] }) {
@@ -125,12 +123,9 @@ export default function Services() {
         {/* Added section header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Services I Provide
+           Services I Offer
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] mx-auto rounded-full mb-4"></div>
-          {/* <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Delivering high-quality solutions across web development, mobile applications, and digital services
-          </p> */}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-[800px]">
@@ -222,7 +217,7 @@ export default function Services() {
         </div>
 
         {/* Add new infinite carousel section */}
-        <div className="mt-20">
+        <div className="mt-0">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Additional Services
