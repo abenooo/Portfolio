@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/Footer"
