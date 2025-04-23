@@ -27,8 +27,8 @@ A modern, interactive portfolio website built with Next.js 14, featuring smooth 
 First, clone the repository:
 
 ```bash
-git clone [your-repo-link]
-cd portfolio
+git clone https://github.com/abenooo/Portfolio
+cd Portfolio
 ```
 
 Install the dependencies:
@@ -118,14 +118,10 @@ export interface Project {
 
 Feel free to submit issues and enhancement requests!
 
-## License
-
-[Your chosen license]
-
 ## Contact
 
-[Your contact information]
+abenezerkifle000@gmail.com
 
 ---
 
-Built with ❤️ by [Your Name]
+Built with ❤️ by Abenezer Kifle
