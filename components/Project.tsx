@@ -1,11 +1,13 @@
 "use client"
 
+import type React from "react"
+
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
 import { ChevronDown } from "lucide-react"
 import { useRouter } from "next/navigation"
-import type { Project } from "@/lib/projects"
+import type { Project as ProjectType } from "@/lib/projects"
 import { projects } from "@/lib/projects"
 
 // Reusable component for project tags
@@ -14,65 +16,64 @@ const ProjectTag = ({ children }: { children: React.ReactNode }) => (
 )
 
 // Update ProjectCard to use navigation instead of modal
-const ProjectCard = ({ project, style }: { project: any, style: any }) => {
+const ProjectCard = ({ project, style }: { project: any; style: any }) => {
   const router = useRouter()
 
   return (
-    <motion.div 
+    <motion.div
       onClick={() => router.push(`/projects/${project.id}`)}
       style={{
         ...style,
-        zIndex: style.zIndex || 'auto'
-      }} 
+        zIndex: style.zIndex || "auto",
+      }}
       className="absolute inset-0 flex items-center justify-center h-screen will-change-transform cursor-pointer"
     >
       <div className="max-w-7xl w-full h-full md:h-auto md:aspect-[16/9] relative rounded-3xl overflow-hidden">
-        <motion.div 
+        <motion.div
           className="absolute inset-0 z-0"
           style={{
             filter: `blur(${style.blur}px)`,
-            transition: 'filter 0.5s ease-out'
+            transition: "filter 0.5s ease-out",
           }}
         >
-          <Image 
-            src={project.image || "/placeholder.svg"} 
-            alt={project.title} 
-            fill 
+          <div className="absolute inset-0 bg-blue-900/40 mix-blend-multiply z-10"></div>
+          <Image
+            src={project.image || "/placeholder.svg"}
+            alt={project.title}
+            fill
             className="object-cover transition-transform duration-1000"
             priority
             sizes="(max-width: 768px) 100vw, 80vw"
           />
-          <motion.div 
-            className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60"
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-blue-900/70"
             style={{
-              opacity: style.gradientOpacity
+              opacity: style.gradientOpacity,
             }}
           />
         </motion.div>
 
-        <motion.div 
-          className="absolute top-6 left-6 z-10 flex gap-2"
-          style={{ opacity: style.contentOpacity }}
-        >
-          {project.tags.map((tag: any) => (
+        <motion.div className="absolute top-6 left-6 z-10 flex gap-2" style={{ opacity: style.contentOpacity }}>
+          {project.tags.map((tag: string) => (
             <ProjectTag key={tag}>{tag}</ProjectTag>
           ))}
         </motion.div>
 
-        <motion.div 
-          className="absolute top-6 right-6 z-10"
-          style={{ opacity: style.contentOpacity }}
-        >
+        <motion.div className="absolute top-6 right-6 z-10" style={{ opacity: style.contentOpacity }}>
           <ProjectTag>{project.year}</ProjectTag>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="absolute inset-0 flex flex-col justify-center items-center text-center p-8 z-10"
-          style={{ opacity: style.contentOpacity }}
+          style={{
+            opacity: style.contentOpacity,
+            transform: `translateZ(${style.contentZ}px)`,
+            transition: "transform 0.8s ease-out",
+          }}
         >
           <h2 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">{project.title}</h2>
           <p className="text-lg md:text-xl mb-8 text-white drop-shadow-md max-w-2xl">{project.description}</p>
-          <motion.div 
+          <motion.div
             className="w-20 h-20 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-lg font-medium"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
@@ -87,13 +88,13 @@ const ProjectCard = ({ project, style }: { project: any, style: any }) => {
 }
 
 export default function Project() {
-  const containerRef = useRef(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   return (
     <section id="projects" className="relative bg-black">
       <div className="h-[400vh]" ref={containerRef}>
         <div className="sticky top-0 h-screen overflow-hidden">
-          {projects.map((project: Project, index: number) => (
+          {projects.map((project: ProjectType, index: number) => (
             <ProjectSection
               key={project.id}
               project={project}
@@ -117,16 +118,16 @@ export default function Project() {
   )
 }
 
-function ProjectSection({ 
-  project, 
-  index, 
-  totalProjects, 
-  containerRef
-}: { 
-  project: any, 
-  index: number, 
-  totalProjects: number, 
-  containerRef: any
+function ProjectSection({
+  project,
+  index,
+  totalProjects,
+  containerRef,
+}: {
+  project: ProjectType
+  index: number
+  totalProjects: number
+  containerRef: React.RefObject<HTMLDivElement | null>
 }) {
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -137,49 +138,41 @@ function ProjectSection({
   const sectionStart = index * sectionHeight
   const sectionEnd = sectionStart + sectionHeight
 
-  const y = useTransform(
-    scrollYProgress,
-    [sectionStart, sectionEnd],
-    ['0vh', '-100vh']
-  )
+  const y = useTransform(scrollYProgress, [sectionStart, sectionEnd], ["0vh", "-100vh"])
 
   const scale = useTransform(
     scrollYProgress,
-    [sectionStart, sectionEnd],
-    [1, 0.85]
+    [sectionStart, sectionStart + sectionHeight * 0.5, sectionEnd],
+    [1, 1.05, 0.85],
   )
 
-  const blur = useTransform(
-    scrollYProgress,
-    [sectionStart, sectionStart + (sectionHeight * 0.2)],
-    [0, 8]
-  )
+  const blur = useTransform(scrollYProgress, [sectionStart, sectionStart + sectionHeight * 0.3], [0, 12])
 
   const contentOpacity = useTransform(
     scrollYProgress,
-    [sectionStart, sectionStart + (sectionHeight * 0.3)],
-    [1, 0]
+    [sectionStart, sectionStart + sectionHeight * 0.1, sectionStart + sectionHeight * 0.4],
+    [1, 1.2, 0],
   )
 
-  const gradientOpacity = useTransform(
-    scrollYProgress,
-    [sectionStart, sectionStart + (sectionHeight * 0.3)],
-    [0.6, 0.8]
-  )
+  const gradientOpacity = useTransform(scrollYProgress, [sectionStart, sectionStart + sectionHeight * 0.3], [0.4, 0.9])
+
+  const contentZ = useTransform(scrollYProgress, [sectionStart, sectionStart + sectionHeight * 0.2], [0, 20])
 
   const zIndex = totalProjects - index
 
   return (
-    <ProjectCard 
-      project={project} 
-      style={{ 
-        y, 
-        scale, 
+    <ProjectCard
+      project={project}
+      style={{
+        y,
+        scale,
         blur,
         contentOpacity,
         gradientOpacity,
-        zIndex 
+        zIndex,
+        contentZ,
       }}
     />
   )
 }
+
