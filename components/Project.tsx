@@ -26,7 +26,7 @@ const ProjectCard = ({ project, style }: { project: any; style: any }) => {
         ...style,
         zIndex: style.zIndex || "auto",
       }}
-      className="absolute inset-0 flex items-center justify-center h-screen will-change-transform cursor-pointer"
+      className="absolute inset-0 flex items-center justify-center h-screen will-change-transform cursor-pointer isolate"
     >
       <div className="max-w-7xl w-full h-full md:h-auto md:aspect-[16/9] relative rounded-3xl overflow-hidden">
         <motion.div
@@ -36,7 +36,7 @@ const ProjectCard = ({ project, style }: { project: any; style: any }) => {
             transition: "filter 0.5s ease-out",
           }}
         >
-          <div className="absolute inset-0 bg-blue-900/40 mix-blend-multiply z-10"></div>
+          <div className="absolute inset-0 bg-black/40 mix-blend-multiply z-10"></div>
           <Image
             src={project.image || "/placeholder.svg"}
             alt={project.title}
@@ -46,7 +46,7 @@ const ProjectCard = ({ project, style }: { project: any; style: any }) => {
             sizes="(max-width: 768px) 100vw, 80vw"
           />
           <motion.div
-            className="absolute inset-0 bg-gradient-to-b from-blue-900/30 to-blue-900/70"
+            className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/70"
             style={{
               opacity: style.gradientOpacity,
             }}
@@ -91,8 +91,8 @@ export default function Project() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section id="projects" className="relative bg-black">
-      <div className="h-[400vh]" ref={containerRef}>
+    <section id="projects" className="relative bg-black isolate">
+      <div className="h-[400vh] relative z-10" ref={containerRef}>
         <div className="sticky top-0 h-screen overflow-hidden">
           {projects.map((project: ProjectType, index: number) => (
             <ProjectSection
