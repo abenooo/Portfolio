@@ -1,3 +1,4 @@
+import './globals.css'
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 
@@ -20,12 +21,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const combinedClasses = [
+    geistSans.variable,
+    geistMono.variable,
+    'font-sans',
+    'antialiased'
+  ].join(' ')
+
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>{children}</body>
+      <body className={combinedClasses}>{children}</body>
     </html>
   )
 }
-
-
-import './globals.css'
