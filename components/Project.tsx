@@ -26,7 +26,7 @@ const ProjectCard = ({ project, style }: { project: any; style: any }) => {
         ...style,
         zIndex: style.zIndex || "auto",
       }}
-      className="absolute inset-0 flex items-center justify-center h-screen will-change-transform cursor-pointer isolate"
+      className="absolute inset-0 flex items-center justify-center h-screen cursor-pointer"
     >
       <div className="max-w-7xl w-full h-full md:h-auto md:aspect-[16/9] relative rounded-3xl overflow-hidden">
         <motion.div
@@ -71,8 +71,8 @@ const ProjectCard = ({ project, style }: { project: any; style: any }) => {
             transition: "transform 0.8s ease-out",
           }}
         >
-          <h2 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">{project.title}</h2>
-          <p className="text-lg md:text-xl mb-8 text-white drop-shadow-md max-w-2xl">{project.description}</p>
+          <h2 className="text-5xl md:text-7xl font-bold mb-6 text-white">{project.title}</h2>
+          <p className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl">{project.description}</p>
           <motion.div
             className="w-20 h-20 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-lg font-medium"
             whileHover={{ scale: 1.1 }}
@@ -91,8 +91,8 @@ export default function Project() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section id="projects" className="relative bg-black isolate">
-      <div className="h-[400vh] relative z-10" ref={containerRef}>
+    <section id="projects" className="relative bg-black">
+      <div className="h-[400vh]" ref={containerRef}>
         <div className="sticky top-0 h-screen overflow-hidden">
           {projects.map((project: ProjectType, index: number) => (
             <ProjectSection
@@ -111,7 +111,7 @@ export default function Project() {
           animate={{ y: 10, opacity: 1 }}
           transition={{ repeat: Number.POSITIVE_INFINITY, repeatType: "reverse", duration: 1.5 }}
         >
-          <ChevronDown size={32} className="text-white drop-shadow-md" />
+          <ChevronDown size={32} className="text-white" />
         </motion.div>
       </div>
     </section>
@@ -175,4 +175,3 @@ function ProjectSection({
     />
   )
 }
-
