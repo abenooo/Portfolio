@@ -9,7 +9,7 @@ const services = [
     description:
       "Custom WordPress plugin development for unique business needs. Specializing in PHP, WordPress, Plugin Development, Custom Code, JavaScript, and CSS.",
     icon: <LayoutGrid className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
-    images: ["/images/hhs.png", "/images/sml.png", "/images/codex.png", "/images/abenezer.png"],
+    images: ["/images/hhs.png", "/images/sml.png", "/images/kurifu_website.png", "/images/kurifu_website1.png"],
     height: "h-[66.67%]",
   },
   {
@@ -31,7 +31,7 @@ const services = [
     description:
       "Powerful automation solutions using Zapier, Make.com, and Google Sheets to streamline your business processes and boost efficiency.",
     icon: <Settings className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
-    images: ["/images/hhs.png", "/images/sml.png", "/images/codex.png", "/images/abenezer.png"],
+    images: ["/images/hhs.png", "/images/sml.png", "/images/kurifu_website.png", "/images/kurifu_website1.png"],
     height: "h-[66.67%]",
   },
 ]
@@ -135,117 +135,121 @@ export default function Services() {
           <div className="w-24 h-1 bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] mx-auto rounded-full mb-4"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-[800px]">
-          {/* First column */}
-          <div className="flex flex-col gap-6">
-            {/* First service card with border glow */}
-            <div className="relative group">
-              {/* Updated glow effect - now with a smaller spread and higher opacity */}
-              <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
-              {/* Added an inner background to prevent text blur */}
-              <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
-              <div
-                className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[0].height} border-t border-white/10`}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
-                    {services[0].icon}
+        <div className="flex flex-col">
+          {/* Main services grid */}
+          <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* First column */}
+              <div className="flex flex-col gap-6">
+                {/* First service card with border glow */}
+                <div className="relative group">
+                  {/* Updated glow effect - now with a smaller spread and higher opacity */}
+                  <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
+                  {/* Added an inner background to prevent text blur */}
+                  <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
+                  <div
+                    className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[0].height} border-t border-white/10`}
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
+                        {services[0].icon}
+                      </div>
+                      <h3 className="text-2xl font-semibold text-white">{services[0].title}</h3>
+                    </div>
+                    <p className="text-gray-400 text-lg leading-relaxed mb-4">{services[0].description}</p>
+                    <ImageCarousel images={services[0].images} />
                   </div>
-                  <h3 className="text-2xl font-semibold text-white">{services[0].title}</h3>
                 </div>
-                <p className="text-gray-400 text-lg leading-relaxed mb-4">{services[0].description}</p>
-                <ImageCarousel images={services[0].images} />
-              </div>
-            </div>
 
-            {/* Second service card with border glow */}
-            <div className="relative group">
-              <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
-              <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
-              <div
-                className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[1].height} border-t border-white/10`}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
-                    {services[1].icon}
+                {/* Second service card with border glow */}
+                <div className="relative group">
+                  <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
+                  <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
+                  <div
+                    className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[1].height} border-t border-white/10`}
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
+                        {services[1].icon}
+                      </div>
+                      <h3 className="text-2xl font-semibold text-white">{services[1].title}</h3>
+                    </div>
+                    <p className="text-gray-400 text-lg leading-relaxed">{services[1].description}</p>
                   </div>
-                  <h3 className="text-2xl font-semibold text-white">{services[1].title}</h3>
                 </div>
-                <p className="text-gray-400 text-lg leading-relaxed">{services[1].description}</p>
+              </div>
+
+              {/* Second column - reversed height order */}
+              <div className="flex flex-col gap-6">
+                {/* Third service card with border glow */}
+                <div className="relative group">
+                  <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
+                  <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
+                  <div
+                    className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[2].height} border-t border-white/10`}
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
+                        {services[2].icon}
+                      </div>
+                      <h3 className="text-2xl font-semibold text-white">{services[2].title}</h3>
+                    </div>
+                    <p className="text-gray-400 text-lg leading-relaxed">{services[2].description}</p>
+                  </div>
+                </div>
+
+                {/* Fourth service card with border glow */}
+                <div className="relative group">
+                  <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
+                  <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
+                  <div
+                    className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[3].height} border-t border-white/10`}
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
+                        {services[3].icon}
+                      </div>
+                      <h3 className="text-2xl font-semibold text-white">{services[3].title}</h3>
+                    </div>
+                    <p className="text-gray-400 text-lg leading-relaxed mb-4">{services[3].description}</p>
+                    <ImageCarousel images={services[3].images} />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Second column - reversed height order */}
-          <div className="flex flex-col gap-6">
-            {/* Third service card with border glow */}
-            <div className="relative group">
-              <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
-              <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
-              <div
-                className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[2].height} border-t border-white/10`}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
-                    {services[2].icon}
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white">{services[2].title}</h3>
-                </div>
-                <p className="text-gray-400 text-lg leading-relaxed">{services[2].description}</p>
-              </div>
+          {/* Additional Services */}
+          <div className="mt-16 mb-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Additional Services</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] mx-auto rounded-full mb-4"></div>
             </div>
-
-            {/* Fourth service card with border glow */}
-            <div className="relative group">
-              <div className="absolute transition-all duration-1000 -inset-[1px] bg-white rounded-[32px] opacity-20 group-hover:opacity-50 group-hover:blur-[2px] group-hover:duration-200" />
-              <div className="absolute inset-[1px] bg-[#111] rounded-[32px]" />
-              <div
-                className={`relative p-8 rounded-[32px] bg-transparent hover:bg-[#161616] transition-colors duration-300 ${services[3].height} border-t border-white/10`}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5">
-                    {services[3].icon}
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white">{services[3].title}</h3>
-                </div>
-                <p className="text-gray-400 text-lg leading-relaxed mb-4">{services[3].description}</p>
-                <ImageCarousel images={services[3].images} />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Add new infinite carousel section */}
-        <div className="mt-0">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Additional Services</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] mx-auto rounded-full mb-4"></div>
-          </div>
-
-          <div className="relative overflow-hidden">
-            {/* First row - left to right with top border */}
-            <div className="flex animate-carousel">
-              {additionalServices.map((service, index) => (
-                <ServiceCard 
-                  key={`row1-${index}`} 
-                  service={service}
-                  isSecondRow={false}
-                />
-              ))}
-            </div>
-
-            {/* Second row - right to left with bottom border */}
-            <div className="flex animate-carousel-reverse mt-8">
-              {additionalServices
-                .slice()
-                .reverse()
-                .map((service, index) => (
+            <div className="relative overflow-hidden">
+              {/* First row - left to right with top border */}
+              <div className="flex animate-carousel">
+                {additionalServices.map((service, index) => (
                   <ServiceCard 
-                    key={`row2-${index}`} 
+                    key={`row1-${index}`} 
                     service={service}
-                    isSecondRow={true}
+                    isSecondRow={false}
                   />
                 ))}
+              </div>
+
+              {/* Second row - right to left with bottom border */}
+              <div className="flex animate-carousel-reverse mt-8">
+                {additionalServices
+                  .slice()
+                  .reverse()
+                  .map((service, index) => (
+                    <ServiceCard 
+                      key={`row2-${index}`} 
+                      service={service}
+                      isSecondRow={true}
+                    />
+                  ))}
+              </div>
             </div>
           </div>
         </div>
