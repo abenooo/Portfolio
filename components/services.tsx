@@ -78,12 +78,19 @@ const additionalServices = [
 function ImageCarousel({ images }: { images?: string[] }) {
   if (!images) return null
 
+  // Calculate total width: (image width + gap) * number of images
+  // For 300px width and 32px gap (mx-4), total = (300 + 32) * images.length
+  // But mx-4 is 1rem = 16px, so 32px total per image (left+right)
+  const totalWidth = (300 + 32) * (images.length)
+
   return (
     <div className="mt-4 relative h-[200px] overflow-hidden rounded-xl">
-      <div className="flex animate-carousel-fast">
-        {/* Show 3 sets of images to ensure smooth infinite loop */}
-        {[...images, ...images, ...images].map((image, index) => (
-          <div key={index} className="relative w-[300px] h-[200px] flex-shrink-0 px-4">
+      <div
+        className="flex animate-carousel-infinite"
+        style={{ width: totalWidth * 2 }}
+      >
+        {[...images, ...images].map((image, index) => (
+          <div key={index} className="relative w-[300px] h-[200px] flex-shrink-0 mx-4">
             <Image src={image || "/placeholder.svg"} alt="Project preview" fill className="object-cover rounded-lg" />
           </div>
         ))}
