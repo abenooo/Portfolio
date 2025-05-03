@@ -152,7 +152,7 @@ body {
   z-index: 2;
   pointer-events: none;
 }
-
+/* 
 .overflow-hidden::before {
   left: 0;
   background: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0));
@@ -161,7 +161,7 @@ body {
 .overflow-hidden::after {
   right: 0;
   background: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
-}
+} */
 
 @keyframes carousel-infinite {
   0% {
