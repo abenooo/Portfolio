@@ -220,7 +220,7 @@ export default function Services() {
           </div>
 
           {/* Additional Services */}
-          <div className="mt-16 mb-16">
+          <div className="mt-16">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Additional Services</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] mx-auto rounded-full mb-4"></div>
