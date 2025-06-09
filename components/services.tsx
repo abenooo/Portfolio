@@ -35,52 +35,46 @@ const services = [
     height: "h-[66.67%]",
   },
 ]
-
-// Add new services for the carousel
 const additionalServices = [
   {
     title: "Payment Integration",
-    description: "Seamless payment integration with Telebirr, Chapa, PayPal, and Stripe payment gateways.",
+    description: "Secure payment gateway integration with Telebirr, Chapa, PayPal, and Stripe. Custom payment flows and automated transaction processing.",
     icon: <CreditCard className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
   },
   {
     title: "Bot Development",
-    description: "Custom bots for Telegram and other platforms using JavaScript, Node.js, and API Integration.",
+    description: "Custom Telegram and platform-specific bots with automated responses, data processing, and seamless API integration for enhanced user interaction.",
     icon: <Bot className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
   },
   {
     title: "UI/UX Design",
-    description: "End-to-end UI design and UX research using Figma, Sketch, Adobe XD",
+    description: "Professional UI/UX design services using Figma and Adobe XD. User research, wireframing, and interactive prototype development.",
     icon: <Palette className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
   },
   {
-    title: "Cloud Solutions",
-    description: "Integration of cloud storage and support for seamless business operations.",
+    title: "Mobile Applications",
+    description: "Cross-platform mobile app development using React Native and Flutter. Native iOS/Android apps with modern UI and offline capabilities.",
     icon: <Cloud className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
   },
   {
-    title: "Cloud Solutions",
-    description: "Integration of cloud storage and support for seamless business operations.",
-    icon: <Cloud className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
+    title: "Dynamic Websites",
+    description: "Full-stack web applications with real-time features, user authentication, and database integration. Built with modern frameworks and APIs.",
+    icon: <Code2 className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
   },
   {
-    title: "Cloud Solutions",
-    description: "Integration of cloud storage and support for seamless business operations.",
-    icon: <Cloud className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
+    title: "Static Websites",
+    description: "High-performance static websites with Next.js and Gatsby. SEO-optimized, secure, and lightning-fast loading for optimal user experience.",
+    icon: <LayoutGrid className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
   },
   {
-    title: "Cloud Solutions",
-    description: "Integration of cloud storage and support for seamless business operations.",
-    icon: <Cloud className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
+    title: "Business Automation",
+    description: "Custom workflow automation using Zapier and Make.com. Streamline business processes with automated data handling and task management.",
+    icon: <Settings className="w-6 h-6 text-white bg-white/10 rounded-full p-1" />,
   },
 ]
 
 function ImageCarousel({ images }: { images?: string[] }) {
   if (!images) return null
-
-  // Calculate total width: (image width + gap) * number of images
-  // For 300px width and 32px gap (mx-4), total = (300 + 32) * images.length
-  // But mx-4 is 1rem = 16px, so 32px total per image (left+right)
   const totalWidth = (300 + 32) * (images.length)
 
   return (
@@ -222,7 +216,7 @@ export default function Services() {
           {/* Additional Services */}
           <div className="mt-16">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Additional Services</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Additional Services </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] mx-auto rounded-full mb-4"></div>
             </div>
             <div className="relative overflow-hidden">
