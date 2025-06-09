@@ -239,8 +239,13 @@ export default function AboutMe() {
   }
 
   return (
-    <section id="experience" className="py-20 lg:py-32 bg-black">
+    <section id="experience" className=" bg-black">
       <div className="max-w-7xl mx-auto px-4">
+        {/* Section Title */}
+        <div className="text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">About Me</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] mx-auto rounded-full mb-4"></div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-1">
             <motion.div
