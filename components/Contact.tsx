@@ -13,7 +13,6 @@ const contactInfo = {
   linkedin: "linkedin.com/in/abenezer-kifle",
   websites: [
     { name: "Codex Africa", url: "https://codexafrica.com" },
-    { name: "Event App", url: "https://event-app-landing-page.vercel.app" }
   ]
 }
 
