@@ -64,13 +64,16 @@ const workHistoryData: Job[] = [
         "Next.js",
         "Node.js",
         "TypeScript",
-        "Hyperledger Fabric",
         "Strapi.js",
         "PostgreSQL",
         "AWS",
         "CI/CD",
         "System Architecture",
-        "API Development"
+        "API Development",
+        "Git",
+        "GitHub",
+        "GitLab",
+        "CI/CD"
       ],
       responsibilities: [
         "Led development of Infinity mobile banking app and web platform",
@@ -115,7 +118,11 @@ const workHistoryData: Job[] = [
         "Mobile App Development",
         "Web Development",
         "Digital Marketing",
-        "UI/UX Design"
+        "UI/UX Design",
+        "Git",
+        "GitHub",
+        "GitLab",
+        "CI/CD"
       ],
       responsibilities: [
         "Led development of cross-platform mobile applications using Flutter",
@@ -166,7 +173,11 @@ const workHistoryData: Job[] = [
         "Google Sheets",
         "Telegram Bot API",
         "API Integration",
-        "Workflow Automation"
+        "Workflow Automation",
+        "Git",
+        "GitHub",
+        "GitLab",
+        "CI/CD"
       ],
       responsibilities: [
         "Led frontend development of the Happy House Sitters platform",
@@ -210,8 +221,6 @@ const workHistoryData: Job[] = [
         "Azure Cloud Platform",
         "Cloud Architecture",
         "Docker",
-        "Kubernetes",
-        "Terraform",
         "CI/CD",
         "Infrastructure as Code",
         "Cloud Security",
